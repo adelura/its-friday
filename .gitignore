@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 package-lock.json
+/src/data/*
+/src/data/.gitkeep
+/src/images/
 
 # testing
 /coverage
