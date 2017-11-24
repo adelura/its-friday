@@ -1,17 +1,16 @@
 var fs = require( "fs" );
+const dir = "src/images";
 
-fs.readdir( "src/images", function( err, files ) {
+fs.readdir( dir, function( err, files ) {
 	if ( err ) {
 		return console.error( err );
 	}
 
-	var json = { "images": [] };
-
 	files.map( function( file ) {
-		json.images.push( { "path": "src/images/" + file } );
+		return { path: dir + "/" + file };
 	});
 
-	fs.writeFile( "src/data/images.json", JSON.stringify( json ), function( err ) {
+	fs.writeFile( "src/data/images.json", JSON.stringify( { images: files } ), function( err ) {
 		if ( err ) {
 			return console.log( err );
 		}
